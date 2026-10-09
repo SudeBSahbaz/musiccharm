@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MusicCharm</title>
+  <style>
+    body{font-family:system-ui,-apple-system,sans-serif;background:#0b0b0d;color:#fff;max-width:640px;margin:60px auto;padding:20px}
+    .card{background:#17171b;padding:28px;border-radius:24px}
+    input,button{width:100%;box-sizing:border-box;padding:14px;border:0;border-radius:12px;margin-top:12px;font-size:16px}
+    input{background:#26262c;color:#fff}
+    button{background:#1ed760;font-weight:700;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>MusicCharm</h1>
+    <p>Spotify hesabını cihazınla eşleştir.</p>
+    <input id="device" placeholder="DEVICE_KEY">
+    <button onclick="connectSpotify()">Spotify'a bağlan</button>
+  </div>
+  <script>
+    function connectSpotify(){
+      const device=document.getElementById('device').value.trim();
+      if(!device) return alert('DEVICE_KEY gir.');
+      location.href='/.netlify/functions/login?device='+encodeURIComponent(device);
+    }
+  </script>
+</body>
+</html>
